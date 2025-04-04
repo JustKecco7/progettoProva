@@ -1,0 +1,3 @@
+C:/Users/FrancescoEmilioVargi/Desktop/dup/progettoC/progettoProva/cmake-build-debug/CMakeFiles/progettoProva.dir
+C:/Users/FrancescoEmilioVargi/Desktop/dup/progettoC/progettoProva/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/FrancescoEmilioVargi/Desktop/dup/progettoC/progettoProva/cmake-build-debug/CMakeFiles/rebuild_cache.dir
