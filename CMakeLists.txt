@@ -4,4 +4,6 @@ project(progettoProva C)
 set(CMAKE_C_STANDARD 11)
 
 
-add_executable(progettoProva main.c)
+add_executable(progettoProva main.c
+        header/grafo.h
+        resource/grafo.c)
