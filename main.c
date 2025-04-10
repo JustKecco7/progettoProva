@@ -22,10 +22,10 @@ typedef struct Utente User;
 User *creaUtente(char *p_cf, char *p_nome, int p_eta, float p_peso);
 void aggiungiUtente(User *hash, User *u);
 void aggiungiUtente_(User *hash, char *p_cf, char *p_nome, int p_eta, float p_peso);
-void termina(const char *s, FILE *f, int errcode) ;
+void termina(const char *s, FILE *f, int errcode, int linea) ;
 void stampaUtente(User *u, int colore);
 User *leggiUtente(FILE *f);
-
+User ** leggiUtenti(FILE *f, User *hash, int *dimensione);
 
 
 
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
     }
     FILE *f = fopen( argv[1], "r" );
     if (f == NULL)
-        termina("Errore lettura file.", stderr, -1);
+        termina("Errore lettura file.", stderr, -1, __LINE__);
 
     h = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -44,13 +44,17 @@ int main(int argc, char* argv[]) {
     printf("====== Prova Hash Table ======\n");
 
     User  *listaUsers = NULL;
+    int size;
 
-    //User *utente = creaUtente("VRGFNC02D06B354M", "Francesco Vargiu", 22, 74.5);
-    User *utente = leggiUtente(f);
-    aggiungiUtente( listaUsers, utente );
-    stampaUtente(utente, 10);
-
-
+    printf("====== Leggo utenti da %s =======\n",argv[1]);
+    leggiUtenti(f, listaUsers, &size);
+    printf("====== Lettura completata. ======\n");
+    printf("====== Stampo l utente BRTGRG01C12H223D ======\n");
+    char * cf = "BRTGRG01C12H223D";
+    User *uToPrint;
+    HASH_FIND_STR(listaUsers, cf, uToPrint);
+    stampaUtente( uToPrint, 10 );
+    printf("===== Ottimo =====\n");
     fclose(f);
     return 0;
 }
@@ -86,9 +90,9 @@ void aggiungiUtente_(User *hash, char *p_cf, char *p_nome, int p_eta, float p_pe
 }
 
 
-void termina(const char *s, FILE *f, int errcode) {
+void termina(const char *s, FILE *f, int errcode, int linea) {
     SetConsoleTextAttribute(h, 12);
-    fprintf(f, "\n\t%s\n", s);
+    fprintf(f, "\n\t%s in linea %d\n", s, linea);
     SetConsoleTextAttribute(h, 7);
     exit(errcode);
 }
@@ -114,16 +118,35 @@ User *leggiUtente(FILE *f) {
     u = malloc(sizeof(User) );
     u->cf = malloc(sizeof(char)*CF_MAX_ );
     e = fscanf(f, "%s\n", u->cf);
-    ////if (e==0) termina( "Errore lettura cf", stderr, -1);
+    ////if (e==0) termina( "Errore lettura cf", stderr, -1, __LINE__);
     u->nome = malloc(sizeof(char)*NOME_MAX );
     e = fscanf(f, "%s\n", u->nome);
-    ////if (e==0) termina( "Errore lettura cf", stderr, -1);
+    ////if (e==0) termina( "Errore lettura cf", stderr, -1, __LINE__);
     e = fscanf(f, "%d\n", &u->eta);
-    ////if (e==0) termina( "Errore lettura cf", stderr, -1);
+    ////if (e==0) termina( "Errore lettura cf", stderr, -1, __LINE__);
     e = fscanf(f, "%f\n", &u->peso);
-    ////if (e==0) termina( "Errore lettura cf", stderr, -1);
+    ////if (e==0) termina( "Errore lettura cf", stderr, -1, __LINE__);
     return u;
 }
 
+User ** leggiUtenti(FILE *f, User *hash, int *dimensione) {
+    User **listaUtenti;
+    int e;
 
+    fscanf(f,"%d\n",dimensione);
+    int n = *dimensione;
+    listaUtenti = (User**) malloc( sizeof(User*) * n );
+
+    for (int i = 0; i<n; i++) {
+        listaUtenti[i] = malloc(sizeof(User) );
+        listaUtenti[i]->cf = malloc(sizeof(char)*CF_MAX_ );
+        fscanf(f, "%s\n", listaUtenti[i]->cf);
+        listaUtenti[i]->nome = malloc(sizeof(char)*NOME_MAX );
+        fscanf(f, "%s\n", listaUtenti[i]->nome);
+        fscanf(f, "%d\n", &listaUtenti[i]->eta);
+        fscanf(f, "%f\n", &listaUtenti[i]->peso);
+        aggiungiUtente(hash, listaUtenti[i]);
+    }
+    return listaUtenti;
+}
 
