@@ -1,0 +1,4 @@
+
+#define NOMI_LENGTH 30;
+
+#define SCRIPT_LENGTH 256

@@ -1,0 +1,2 @@
+
+enum Razze {HELLBORN, TRITONE, ARPIA, CICLOPE};
