@@ -1,10 +1,20 @@
 # ninja log v6
 162	1990	7659161830575842	CMakeFiles/progettoProva.dir/resource/grafo.c.obj	3803972883b39744
-27	833	7660696988170105	CMakeFiles/progettoProva.dir/main.c.obj	bdb3e3090ea013a1
-5987	6607	7660835810941669	progettoProva.exe	d5290b67e220591b
+15	4688	7664296904879519	CMakeFiles/progettoProva.dir/main.c.obj	bdb3e3090ea013a1
+415	1486	7664263153700374	progettoProva.exe	81085af168fb2b66
 8	2549	7660639018696483	CMakeFiles/progettoProva.dir/prova1.c.obj	feea3f51d30053fe
 55	3145	7660696988449342	CMakeFiles/progettoProva.dir/resource/errori.c.obj	583c2858f1cca917
-6	750	7660890529318652	build.ninja	135663d47e05a7b3
+7	3059	7664299114655113	build.ninja	135663d47e05a7b3
 83	402	7660644071921363	CMakeFiles/progettoProva.dir/resource/personaggio.c.obj	14b4306eb76c8d8c
-118	5986	7660835752250897	CMakeFiles/progettoProva.dir/resource/statistiche.c.obj	a229ed1ca0fb8de1
-834	1144	7660694687215507	CMakeFiles/progettoProva.dir/resource/testRunner.c.obj	15f2b0866a4bee8e
+14	2789	7664164418980162	CMakeFiles/progettoProva.dir/resource/statistiche.c.obj	a229ed1ca0fb8de1
+149	501	7664163391578718	CMakeFiles/progettoProva.dir/resource/testRunner.c.obj	15f2b0866a4bee8e
+86	414	7664263150418215	CMakeFiles/progettoProva.dir/resource/provaHash.c.obj	92962866ea8550bc
+199	819	7664150889822211	CMakeFiles/progettoProva.dir/resource/evento.c.obj	5863796ed5b8b11c
+182	821	7664150889647068	CMakeFiles/progettoProva.dir/resource/zolla.c.obj	8cf63799b5fa50f7
+790	1826	7664325959404919	CMakeFiles/progettoProva.dir/resource/testRunner.c.obj	15f2b0866a4bee8e
+801	4187	7664325959499798	CMakeFiles/progettoProva.dir/resource/provaHash.c.obj	92962866ea8550bc
+739	4212	7664325958886263	CMakeFiles/progettoProva.dir/resource/statistiche.c.obj	a229ed1ca0fb8de1
+4212	5315	7664325993616429	progettoProva.exe	81085af168fb2b66
+42	423	7664327288603697	CMakeFiles/progettoProva.dir/main.c.obj	bdb3e3090ea013a1
+54	2601	7664327288714080	CMakeFiles/progettoProva.dir/resource/testRunner.c.obj	15f2b0866a4bee8e
+2602	2862	7664327314187819	progettoProva.exe	81085af168fb2b66

@@ -21,4 +21,7 @@ add_executable(progettoProva
         header/zolla.h
         resource/zolla.c
         header/evento.h
-        resource/evento.c)
+        resource/evento.c
+        resource/provaHash.c
+        header/provaHash.h
+        includes/aprHash/include/apr.h.in)
