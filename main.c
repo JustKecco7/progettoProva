@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <search.h>
-
+#include "header/errori.h"
 #include "header/testRunner.h"
 
 int main ( int argc , char *argv[]) {
 
     printf("Starting main:\n");
+    fflag(__LINE__, __FILE__);
     if (argc >= 2) {
         if( strcmp( argv[1], "-t" ) == 0 ) {
             if (argc == 3) {

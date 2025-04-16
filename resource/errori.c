@@ -7,3 +7,13 @@ void termina(const char *s, FILE *f, int errcode, int linea, const char* pos) {
     SetConsoleTextAttribute(h, 7);
     exit(errcode);
 }
+
+
+
+void fflag(int pos, const char *file) {
+    idFlag += 1;
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h, 13);
+    printf( "#Flag %d: linea %d in file %s\n", idFlag, pos, file);
+    SetConsoleTextAttribute(h, 7);
+}

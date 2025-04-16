@@ -26,7 +26,10 @@ void mainFunction(const char *path) {
 
     int size;
     Stats **listaStatistiche = leggiStatisticheDaPos(path, &size);
-    char *nomi[] = {"Bee", "Radesh", "Samson", "Circe", "Doraemon", "Suzune", "Trittica", "Underbart"};
+    if (listaStatistiche == NULL)
+        termina("Lista statistiche vuota.", stderr, -1, __LINE__, __FILE__);
+
+    const char *nomi[] = {"Bee", "Radesh", "Samson", "Circe", "Doraemon", "Suzune", "Trittica", "Underbart"};
     int nomiSize = 8;
 
 
@@ -35,10 +38,13 @@ void mainFunction(const char *path) {
         if (temp == NULL)
             termina("Fallita malloc.", stderr, -1, __LINE__, __FILE__);
         strcpy(temp->chiave, nomi[i%nomiSize]);
+        printf("Chiave: %s (%d)\n", temp->chiave, strlen(temp->chiave));
         temp->satistiche = malloc(sizeof(listaStatistiche));
         if (temp->satistiche == NULL)
             termina("Fallita malloc.", stderr, -1, __LINE__, __FILE__);
         copiaStatistiche(temp->satistiche, listaStatistiche[i]);
+        printf("Statistica:\n"); stampaStatistica(temp->satistiche);
+        fflag(__LINE__, __FILE__);
         HASH_ADD_STR(mappa, chiave, temp);
     }
 

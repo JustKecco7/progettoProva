@@ -32,6 +32,8 @@ Stats *creaStatistiche(int frz, int vlc, int res, int vitaMax, int vitaAtt, int 
     return stat;
 }
 void copiaStatistiche(Stats *stat1, Stats *stat2) {
+    if (stat1 == NULL || stat2 == NULL)
+        termina("Passati valori non validi.", stderr, -1, __LINE__, __FILE__);
     stat1->forza = stat2->forza;
     stat1->velocita = stat2->velocita;
     stat1->resistenza = stat2->resistenza;

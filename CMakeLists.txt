@@ -24,4 +24,5 @@ add_executable(progettoProva
         resource/evento.c
         resource/provaHash.c
         header/provaHash.h
-        includes/aprHash/include/apr.h.in)
+        header/provaHashSemplice.h
+        resource/provaHashSemplice.c)
