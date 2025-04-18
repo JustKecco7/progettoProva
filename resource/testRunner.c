@@ -3,6 +3,7 @@
 #include "../header/errori.h"
 #include "../header/statistiche.h"
 #include "../header/provaHash.h"
+#include "../header/provaHashSemplice.h"
 
 
 void test(void *parametri) {
@@ -10,8 +11,7 @@ void test(void *parametri) {
     char * posFile = (char*)parametri;
     if(posFile == NULL)
         termina("Errore conversione parametri.", stderr, -1, __LINE__, __FILE__);
-    fflag(__LINE__, __FILE__);
-    testUTHASH(posFile);
+    testHashSemplice(posFile);
 }
 void testStatistiche(const char *posFile) {
     Stats **stat;
@@ -22,8 +22,14 @@ void testStatistiche(const char *posFile) {
 
 
 void testUTHASH(const char *posFile) {
-    fflag(__LINE__, __FILE__);
     mainFunction(posFile);
+}
+
+void testHashSemplice(const char *posFile) {
+    char **nomi;
+    int dimensione;
+    nomi = leggiNomi(posFile, &dimensione);
+    stampaArrayNomi(nomi, dimensione);
 }
 
 
