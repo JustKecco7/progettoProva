@@ -40,12 +40,12 @@ char **leggiNomi(const char *posFile, int *dimensione) {
     do {
         listaNomi[puntatoreArray] = malloc(sizeof (char) * 30);
         errore = fscanf(f, "%s\n", listaNomi[puntatoreArray] );
-        puntatoreArray++;
         if ( puntatoreArray == dimensioneArray ) {
             dimensioneArray *= 2;
             if (realloc (listaNomi, dimensioneArray)  == NULL)
                 termina("Realloc fallita.", stderr, -1, __LINE__, __FILE__);
         }
+        puntatoreArray++;
     }while (errore == 1);
     fclose(f);
     if (errore != EOF)
